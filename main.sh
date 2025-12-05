@@ -10,7 +10,7 @@ GITHUB_REPOSITORY=$4
 response=$(curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
     -H "Accept: application/vnd.github.v3+json" \
     https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_ID}/comments \
-    -d "{\"body\": \"${COMMENT}\"}")
+    -d "{\"body\": \"Versão 2.0 - ${COMMENT}\"}")
 
 # Obtenha o ID do comentário criado
 comment_id=$(echo $response | jq -r .id)
@@ -18,6 +18,6 @@ comment_id=$(echo $response | jq -r .id)
 # Define o output com o ID do comentário
 echo "comment-id=${comment_id}" >> $GITHUB_OUTPUT
 
-echo "Comentário adicionado com sucesso! ID do comentário: $comment_id"
+echo "Versão 2.0 - Comentário adicionado com sucesso! ID do comentário: $comment_id"
 
  
